@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="Oxygen_scaled" size="0.069850 0.120737" />
+    <ImageTarget name="Fissure_scaled" size="0.069850 0.120737" />
+    <ImageTarget name="Drone_scaled" size="0.069850 0.120737" />
+    <ImageTarget name="Astronaut_scaled" size="0.069850 0.120737" />
+    <ImageTarget name="BookCover2" size="0.100000 0.123457" />
+    <ImageTarget name="BookCover" size="0.100000 0.127974" />
+    <CylinderTarget name="RocketBooster" sideLength="0.114980"/>
+    <CylinderTarget name="Cylinder" sideLength="0.110000"/>
+  </Tracking>
+</QCARConfig>
