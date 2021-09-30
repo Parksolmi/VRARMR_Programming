@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 2020821747, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnchorStage: {fileID: 0}
+  AnchorStage: {fileID: 2038903416}
   DuplicateStage: 1
   OnContentPlaced:
     m_PersistentCalls:
@@ -458,7 +458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9219437492049281077, guid: f7f235cb967470b42b7bdcdc8e76bb4e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9219437492049281077, guid: f7f235cb967470b42b7bdcdc8e76bb4e, type: 3}
       propertyPath: m_LocalScale.x
