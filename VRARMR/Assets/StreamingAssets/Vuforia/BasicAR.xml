@@ -9,12 +9,26 @@
         <ImageTarget name="Astronaut_scaled" size="0.069850 0.120737"/>
         <ImageTarget name="BookCover2" size="0.100000 0.123457"/>
         <ImageTarget name="BookCover" size="0.100000 0.127974"/>
-        <ImageTarget name="Cuboid.Right" size="0.100000 0.100000"/>
-        <ImageTarget name="Cuboid.Top" size="0.100000 0.100000"/>
-        <ImageTarget name="Cuboid.Left" size="0.100000 0.100000"/>
+        <ImageTarget name="Cuboid2.Back" size="0.100000 0.100000"/>
+        <ImageTarget name="Cuboid2.Right" size="0.100000 0.100000"/>
+        <ImageTarget name="Cuboid2.Left" size="0.100000 0.100000"/>
+        <ImageTarget name="Cuboid2.Front" size="0.100000 0.100000"/>
+        <ImageTarget name="Cuboid2.Top" size="0.100000 0.100000"/>
+        <ImageTarget name="Cuboid2.Bottom" size="0.100000 0.100000"/>
         <ImageTarget name="Cuboid.Back" size="0.100000 0.100000"/>
+        <ImageTarget name="Cuboid.Right" size="0.100000 0.100000"/>
+        <ImageTarget name="Cuboid.Left" size="0.100000 0.100000"/>
         <ImageTarget name="Cuboid.Front" size="0.100000 0.100000"/>
+        <ImageTarget name="Cuboid.Top" size="0.100000 0.100000"/>
         <ImageTarget name="Cuboid.Bottom" size="0.100000 0.100000"/>
+        <MultiTarget name="Cuboid2">
+            <Part name="Cuboid2.Left" translation="-0.05000000074505806 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="Cuboid2.Right" translation="0.05000000074505806 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="Cuboid2.Front" translation="0 0 0.05000000074505806" rotation="AD: 1 0 0 0"/>
+            <Part name="Cuboid2.Back" translation="0 0 -0.05000000074505806" rotation="AD: 0 1 0 180"/>
+            <Part name="Cuboid2.Top" translation="0 0.05000000074505806 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="Cuboid2.Bottom" translation="0 -0.05000000074505806 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
         <MultiTarget name="Cuboid">
             <Part name="Cuboid.Left" translation="-0.05000000074505806 0 0" rotation="AD: 0 1 0 -90"/>
             <Part name="Cuboid.Right" translation="0.05000000074505806 0 0" rotation="AD: 0 1 0 90"/>
