@@ -671,8 +671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e697ed751fef1f94f87f365a0515b638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonText: {fileID: 0}
-  bulletObj: {fileID: 0}
+  buttonText: {fileID: 686196949}
+  bulletObj: {fileID: 5313879854518155849, guid: 0e2828c5739c066429f63e68329eab63, type: 3}
 --- !u!1001 &677527309
 PrefabInstance:
   m_ObjectHideFlags: 0
