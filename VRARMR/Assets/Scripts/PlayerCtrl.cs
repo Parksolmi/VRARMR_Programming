@@ -18,11 +18,15 @@ public class PlayerCtrl : MonoBehaviour
 
     State curState = State.Move;
 
-
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButton(0))
+        //버그 수정용 코드
+        if (Input.GetMouseButtonDown(0))
+        {
+            prePos = Input.mousePosition;
+        }
+
+        if (Input.GetMouseButton(0))
         {
             Vector3 deltaPos = Input.mousePosition - prePos;
 
@@ -64,5 +68,29 @@ public class PlayerCtrl : MonoBehaviour
     {
         curState = State.Zoom;
         stateText.text = name;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Monster")
+        {
+            print("충돌 시작");
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Monster")
+        {
+            print("충돌 지속");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Monster")
+        {
+            print("충돌 종료");
+        }
     }
 }
