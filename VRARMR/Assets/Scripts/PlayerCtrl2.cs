@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerCtrl : MonoBehaviour
+public class PlayerCtrl2 : MonoBehaviour
 {
     enum State
     {
@@ -30,12 +30,12 @@ public class PlayerCtrl : MonoBehaviour
             {
                 case State.Move:
                     deltaPos *= (Time.deltaTime * 0.1f);
-                    transform.Translate(deltaPos.x, 0, deltaPos.y, Space.World);
+                    transform.Translate(0, deltaPos.y, 0, Space.World);
                     break;
 
                 case State.Spin:
                     deltaPos *= (Time.deltaTime * 10);
-                    transform.Rotate(deltaPos.y, -deltaPos.x, 0, Space.World);
+                    transform.Rotate(0, 0, -deltaPos.x, Space.World);
                     break;
 
                 case State.Zoom:
