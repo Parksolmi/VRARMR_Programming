@@ -13,9 +13,12 @@ public class TrackObj : MonoBehaviour
 
     public bool isDetected;
 
+    Animation objAni;
+
     void Start()
     {
         InitInfo();
+        objAni = GetComponent<Animation>();
     }
 
     public void InitInfo()
@@ -26,5 +29,17 @@ public class TrackObj : MonoBehaviour
     public void OnDetect(bool detect)
     {
         isDetected = detect;
+    }
+
+    public float PlayAnimation(string clipName)
+    {
+        if(objAni.GetClip(clipName) == null)
+        {
+            clipName = name + "_" + clipName;
+        }
+
+        objAni.Play(clipName);
+
+        return objAni.GetClip(clipName).length;
     }
 }
