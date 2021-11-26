@@ -9,9 +9,12 @@ public class BallCtrl : MonoBehaviour
     Rigidbody rb;
     Vector3 mousePos;
 
+    AudioSource ads;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        ads = GetComponent<AudioSource>();
     }
 
     private void LateUpdate()
@@ -39,6 +42,11 @@ public class BallCtrl : MonoBehaviour
             rb.AddTorque(-deltaPos.y, deltaPos.x, 0);
 
             Invoke("ResetBall", 2);
+
+            if(GameMng.instance.gameState == GameState.Begin)
+            {
+                ads.Play();
+            }
         }
     }
 
