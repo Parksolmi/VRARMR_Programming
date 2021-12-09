@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//게임 상태(각 스테이지)를 알려주는 변수
 public enum GameState
 {
-    Ready,
-    Stage1,
-    Stage2,
-    Stage3
+    Ready, //준비 : 게임 시작 전
+    Stage1, //스테이지 1
+    Stage2, //스테이지 2
+    Stage3 //스테이지 3
 }
 
+//게임 진행을 위한 Management클래스
 public class GameMng : MonoBehaviour
 {
+    //시작 전 : 게임 스테이지 Ready로 설정
     public GameState gameState = GameState.Ready;
 
     public Text startMsg; //시작 메세지를 저장할 변수
@@ -24,21 +27,28 @@ public class GameMng : MonoBehaviour
 
     private void Update()
     {
+        //Ready상태일 때 실행
         if (gameState == GameState.Ready)
         {
-            if (playerIdle.isDetected)
+            if (playerIdle.isDetected) //플레이어 객체가 감지되었을 때
             {
+                //스타트 버튼이 활성화되어있지 않다면
                 if (startBtn.activeSelf == false)
                 {
+                    //스타트 버튼 활성화 시키기
                     startBtn.SetActive(true);
+                    //확인 되었음을 알리는 메세지 출력하기
                     startMsg.text = "확인되셨습니다";
                 }
             }
-            else
+            else //플레이어 객체가 감지되지 않았을 때
             {
+                //스타트 버튼이 활성화 되어 있다면
                 if (startBtn.activeSelf)
                 {
+                    //스타트 버튼이 보이지 않도록 비활성화 시키기
                     startBtn.SetActive(false);
+                    //카드 인식을 위한 메세지 출력하기
                     startMsg.text = "산타협회 회원증을 제시해주세요";
                 }
             }
@@ -58,5 +68,6 @@ public class GameMng : MonoBehaviour
         //버튼 지우기
         startBtn.SetActive(false);
     }
+
 
 }
