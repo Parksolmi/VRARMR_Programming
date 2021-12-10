@@ -25,11 +25,12 @@ public class Santa1Ctrl : MonoBehaviour
             transform.Translate(deltaPos.x, 0, deltaPos.y, mySpace);
         }
 
-        //prePos에 마우스 위치를 넣는다
-        prePos = Input.mousePosition;
-
         //마우스 위치에 따라 캐릭터 회전
+        Vector2 deltaPosForRotate = Input.mousePosition - prePos;
+        deltaPosForRotate *= (Time.deltaTime * 10);
+        transform.Rotate(0, deltaPosForRotate.x * 2, 0, Space.World);
 
+        prePos = Input.mousePosition;
     }
 
     //해당 게임 오브젝트를 비활성화 시키는 함수
@@ -41,6 +42,21 @@ public class Santa1Ctrl : MonoBehaviour
     public void setActiveTrue()
     {
         player.SetActive(true);
+    }
+
+    //충돌처리
+    private void OnTriggerEnter(Collider other)
+    {
+        //선물박스
+        if(other.tag == "Present")
+        {
+            Destroy(other.gameObject);
+        }
+        //종이박스
+        if(other.tag == "WoodBox")
+        {
+            Destroy(other.gameObject);
+        }
     }
 
 }

@@ -24,6 +24,8 @@ public class GameMng : MonoBehaviour
     public Santa1Ctrl stage1Player; //플레이어 객체 : 스테이지 1 플레이어
 
     public GameObject startBtn; //시작 버튼을 저장할 변수
+    
+    public GameObject box; //상자 오브젝트를 저장할 변수
 
     private void Update()
     {
@@ -67,6 +69,8 @@ public class GameMng : MonoBehaviour
         startMsg.text = null;
         //버튼 지우기
         startBtn.SetActive(false);
+        //박스 오브젝트 활성화
+        box.SetActive(true);
     }
 
 
