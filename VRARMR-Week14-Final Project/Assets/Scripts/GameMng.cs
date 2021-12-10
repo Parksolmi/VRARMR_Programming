@@ -23,9 +23,33 @@ public class GameMng : MonoBehaviour
     public SantaIdle playerIdle; //플레이어 객체 : 처음 시작 할 때 플레이어
     public Santa1Ctrl stage1Player; //플레이어 객체 : 스테이지 1 플레이어
 
+    public GameObject backGround; //배경 오브젝트를 저장할 변수
+
     public GameObject startBtn; //시작 버튼을 저장할 변수
-    
-    public GameObject box; //상자 오브젝트를 저장할 변수
+
+    //박스 오브젝트와의 충돌 여부를 저장하는 변수
+    private bool isCollisionP; //선물 상자와의 충돌 여부
+    private bool isCollisionB; //나무 상자와의 충돌 여부
+
+    //게임이 시작했는지 여부를 저장하는 변수
+    private bool isStart = false;
+
+    //게임 종료 조건 변수
+    private int score; //점수
+    private int goal; //목표 숫자 : 선물을 획득해야 하는 숫자
+
+    //게임 진행 메세지
+    public Text scoreMsg; //점수 보여주는 메세지
+    public Text goalMsg; //생명 보여주는 메세지
+    public Text resultMsg; //결과 보여주는 메세지
+
+    //스테이지 넘어가는 버튼
+
+    private void Start()
+    {
+        
+    }
+
 
     private void Update()
     {
@@ -55,6 +79,48 @@ public class GameMng : MonoBehaviour
                 }
             }
         }
+
+        //Stage1에서 게임 종료 조건
+        if (gameState == GameState.Stage1)
+        {
+            if(!isStart)
+            {
+                //게임 시작 전 score, goal변수 설정
+                score = 0;
+                goal = 15;
+
+                scoreMsg.text = "Present " + score;
+                goalMsg.text = "Goal " + goal;
+
+                isStart = true;
+            }
+            else
+            {
+                //박스와 충돌 시 Score 점수 수정
+                if (isCollisionP) //선물 상자와 충돌한 경우
+                {
+                    PlusScore();
+                    isCollisionP = false;
+                }
+                if (isCollisionB) //나무 상자와 충돌한 경우
+                {
+                    MinusScore();
+                    isCollisionB = false;
+                }
+
+                //게임 종료 조건
+                //성공
+                if (score >= goal)
+                {
+                    resultMsg.text = "Success";
+                }
+                //실패
+                if (score < 0)
+                {
+                    resultMsg.text = "Fail";
+                }
+            }
+        }
     }
 
     //시작 버튼 눌렀을 때 이벤트
@@ -65,13 +131,34 @@ public class GameMng : MonoBehaviour
         //플레이어 교체
         playerIdle.setActiveFalse();
         stage1Player.setActiveTrue();
+        //배경활성화
+        backGround.SetActive(true);
         //메세지 지우기
         startMsg.text = null;
         //버튼 지우기
         startBtn.SetActive(false);
-        //박스 오브젝트 활성화
-        box.SetActive(true);
     }
 
+    //충돌 변수 설정
+    public void SetIsCollisionP(bool collision)
+    {
+        isCollisionP = collision; 
+    }
+    public void SetIsCollisionB(bool collision)
+    {
+        isCollisionB = collision;
+    }
+
+    //스테이지1 score 증감 함수
+    public void PlusScore()
+    {
+        score++;
+        scoreMsg.text = "Score " + score;
+    }
+    public void MinusScore()
+    {
+        score -= 3;
+        scoreMsg.text = "Score " + score;
+    }
 
 }

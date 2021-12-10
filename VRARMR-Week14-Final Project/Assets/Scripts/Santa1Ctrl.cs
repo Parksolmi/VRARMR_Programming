@@ -12,7 +12,10 @@ public class Santa1Ctrl : MonoBehaviour
     public Space mySpace;
 
     //이전위치를 저장할 변수
-    Vector3 prePos; 
+    Vector3 prePos;
+
+    //게임 매니저 객체를 저장할 변수
+    public GameObject gameMng;
 
     void Update()
     {
@@ -31,6 +34,7 @@ public class Santa1Ctrl : MonoBehaviour
         transform.Rotate(0, deltaPosForRotate.x * 2, 0, Space.World);
 
         prePos = Input.mousePosition;
+
     }
 
     //해당 게임 오브젝트를 비활성화 시키는 함수
@@ -50,11 +54,13 @@ public class Santa1Ctrl : MonoBehaviour
         //선물박스
         if(other.tag == "Present")
         {
+            gameMng.GetComponent<GameMng>().SetIsCollisionP(true);
             Destroy(other.gameObject);
         }
         //종이박스
         if(other.tag == "WoodBox")
         {
+            gameMng.GetComponent<GameMng>().SetIsCollisionB(true);
             Destroy(other.gameObject);
         }
     }
