@@ -23,6 +23,7 @@ public class GameMng : MonoBehaviour
     public SantaIdle playerIdle; //플레이어 객체 : 처음 시작 할 때 플레이어
     public Santa1Ctrl stage1Player; //플레이어 객체 : 스테이지 1 플레이어
 
+
     public GameObject backGround; //배경 오브젝트를 저장할 변수
 
     public GameObject startBtn; //시작 버튼을 저장할 변수
@@ -43,7 +44,9 @@ public class GameMng : MonoBehaviour
     public Text goalMsg; //생명 보여주는 메세지
     public Text resultMsg; //결과 보여주는 메세지
 
-    //스테이지 넘어가는 버튼
+    //스테이지2로 넘어가는 버튼
+    public GameObject stage2Btn;
+
 
     private void Start()
     {
@@ -113,16 +116,23 @@ public class GameMng : MonoBehaviour
                 if (score >= goal)
                 {
                     resultMsg.text = "Success";
+                    stage1Player.GetComponent<GnrtBox>().enabled = false;
+                    //스테이지2로 넘어가는 버튼
+
                 }
                 //실패
                 if (score < 0)
                 {
                     resultMsg.text = "Fail";
+                    stage1Player.GetComponent<GnrtBox>().enabled = false;
+                    //다시하기 버튼
+
                 }
             }
         }
     }
 
+    //버튼 이벤트
     //시작 버튼 눌렀을 때 이벤트
     public void OnClickStartBtn()
     {
@@ -137,6 +147,16 @@ public class GameMng : MonoBehaviour
         startMsg.text = null;
         //버튼 지우기
         startBtn.SetActive(false);
+    }
+
+    //Stage2로 넘어가는 버튼 이벤트
+    public void OnClickStage2Btn()
+    {
+        //게임 스테이지 넘기기
+        gameState = GameState.Stage2;
+        //플레이어 교체
+        stage1Player.setActiveFalse();
+
     }
 
     //충돌 변수 설정
