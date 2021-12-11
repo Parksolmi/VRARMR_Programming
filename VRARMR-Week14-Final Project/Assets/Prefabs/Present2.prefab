@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 5607040161732215904}
   - component: {fileID: -9197377192601172091}
   - component: {fileID: -8621465665587974218}
-  - component: {fileID: 5891807499727326182}
+  - component: {fileID: 845535509578003532}
   - component: {fileID: 8630628370976683807}
   m_Layer: 0
-  m_Name: Present
-  m_TagString: Present
+  m_Name: Present2
+  m_TagString: Present2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,7 +114,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6641042, y: 0.32, z: 0.66562384}
   m_Center: {x: -0.000000029802322, y: 0.14, z: 0.00083839893}
---- !u!114 &5891807499727326182
+--- !u!114 &845535509578003532
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85bc5f154cfd2fa4281bd4e39623cd85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deleteTime: 20
 --- !u!114 &8630628370976683807
 MonoBehaviour:
   m_ObjectHideFlags: 0

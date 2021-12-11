@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 90255020279292300}
   - component: {fileID: -2513356277478222001}
   - component: {fileID: 2009967681903065523}
-  - component: {fileID: -3253628764264518635}
+  - component: {fileID: -3544230461868416740}
   - component: {fileID: -1725356820260648208}
   m_Layer: 0
   m_Name: WoodBox
@@ -114,7 +114,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7910658, y: 0.31, z: 0.79106593}
   m_Center: {x: 0.000000014901161, y: -0.24, z: 0.38058025}
---- !u!114 &-3253628764264518635
+--- !u!114 &-3544230461868416740
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85bc5f154cfd2fa4281bd4e39623cd85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deleteTime: 1
 --- !u!114 &-1725356820260648208
 MonoBehaviour:
   m_ObjectHideFlags: 0

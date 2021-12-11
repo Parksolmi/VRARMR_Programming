@@ -34,7 +34,6 @@ public class Santa1Ctrl : MonoBehaviour
         transform.Rotate(0, deltaPosForRotate.x * 2, 0, Space.World);
 
         prePos = Input.mousePosition;
-
     }
 
     //해당 게임 오브젝트를 비활성화 시키는 함수
@@ -51,18 +50,25 @@ public class Santa1Ctrl : MonoBehaviour
     //충돌처리
     private void OnTriggerEnter(Collider other)
     {
-        //선물박스
-        if(other.tag == "Present")
+        int score = gameMng.GetComponent<GameMng>().GetScore();
+        int goal = gameMng.GetComponent<GameMng>().GetGaol();
+
+        if(score < goal && score >= 0)
         {
-            gameMng.GetComponent<GameMng>().SetIsCollisionP(true);
-            Destroy(other.gameObject);
+            //선물박스
+            if (other.tag == "Present")
+            {
+                gameMng.GetComponent<GameMng>().SetIsCollisionP(true);
+                Destroy(other.gameObject);
+            }
+            //종이박스
+            if (other.tag == "WoodBox")
+            {
+                gameMng.GetComponent<GameMng>().SetIsCollisionB(true);
+                Destroy(other.gameObject);
+            }
         }
-        //종이박스
-        if(other.tag == "WoodBox")
-        {
-            gameMng.GetComponent<GameMng>().SetIsCollisionB(true);
-            Destroy(other.gameObject);
-        }
+        
     }
 
 }
