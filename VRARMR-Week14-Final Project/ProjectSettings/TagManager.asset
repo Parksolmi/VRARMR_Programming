@@ -11,6 +11,9 @@ TagManager:
   - Present2
   - Santa2
   - Bullet
+  - Stage1
+  - Stage2
+  - Stage3
   layers:
   - Default
   - TransparentFX

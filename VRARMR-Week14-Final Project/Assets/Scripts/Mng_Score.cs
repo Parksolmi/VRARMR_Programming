@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreMng : MonoBehaviour
+public class Mng_Score : MonoBehaviour
 {
-    public static ScoreMng instance;
+    public static Mng_Score instance;
     
     public Text scoreText;
     public Text goalText;
@@ -74,6 +74,9 @@ public class ScoreMng : MonoBehaviour
 
     private void Start()
     {
+        score = 5;
+        goal = 15;
+
         isSuccess = false;
         isFail = false;
         isStartbtnClicked = false;

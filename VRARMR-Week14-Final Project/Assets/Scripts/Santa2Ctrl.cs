@@ -19,9 +19,6 @@ public class Santa2Ctrl : MonoBehaviour
     //이전위치를 저장할 변수
     Vector3 prePos;
 
-    //게임 매니저 객체를 저장할 변수
-    public GameObject gameMng;
-
     void Update()
     {
         //마우스 왼쪽 버튼을 눌러서 캐릭터 이동
@@ -61,25 +58,24 @@ public class Santa2Ctrl : MonoBehaviour
     //충돌처리
     private void OnTriggerEnter(Collider other)
     {
-        int score = ScoreMng.instance.GetScore();
-        int goal = ScoreMng.instance.GetGoal();
+        int score = Mng_Score.instance.GetScore();
+        int goal = Mng_Score.instance.GetGoal();
 
         if (score < goal && score >= 0)
         {
             //선물박스
             if (other.tag == "Present2")
             {
-                gameMng.GetComponent<GameMng>().SetIsCollisionP(true);
+                Mng_Score.instance.AddScore(1);
                 Destroy(other.gameObject);
             }
             //종이박스
             if (other.tag == "WoodBox")
             {
-                gameMng.GetComponent<GameMng>().SetIsCollisionB(true);
+                Mng_Score.instance.SubScore(4);
                 Destroy(other.gameObject);
             }
         }
-
     }
 
     //총알 생성 및 발사하는 함수
