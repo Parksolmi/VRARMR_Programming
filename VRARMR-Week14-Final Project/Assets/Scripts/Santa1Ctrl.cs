@@ -50,21 +50,21 @@ public class Santa1Ctrl : MonoBehaviour
     //충돌처리
     private void OnTriggerEnter(Collider other)
     {
-        int score = gameMng.GetComponent<GameMng>().GetScore();
-        int goal = gameMng.GetComponent<GameMng>().GetGaol();
+        int score = ScoreMng.instance.GetScore();
+        int goal = ScoreMng.instance.GetGoal();
 
         if(score < goal && score >= 0)
         {
             //선물박스
             if (other.tag == "Present")
             {
-                gameMng.GetComponent<GameMng>().SetIsCollisionP(true);
+                ScoreMng.instance.AddScore(1);
                 Destroy(other.gameObject);
             }
             //종이박스
             if (other.tag == "WoodBox")
             {
-                gameMng.GetComponent<GameMng>().SetIsCollisionB(true);
+                ScoreMng.instance.SubScore(3);
                 Destroy(other.gameObject);
             }
         }

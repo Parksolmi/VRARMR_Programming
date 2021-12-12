@@ -9,6 +9,8 @@ TagManager:
   - WoodBox
   - Ground
   - Present2
+  - Santa2
+  - Bullet
   layers:
   - Default
   - TransparentFX

@@ -61,8 +61,8 @@ public class Santa2Ctrl : MonoBehaviour
     //충돌처리
     private void OnTriggerEnter(Collider other)
     {
-        int score = gameMng.GetComponent<GameMng>().GetScore();
-        int goal = gameMng.GetComponent<GameMng>().GetGaol();
+        int score = ScoreMng.instance.GetScore();
+        int goal = ScoreMng.instance.GetGoal();
 
         if (score < goal && score >= 0)
         {

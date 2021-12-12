@@ -18,13 +18,18 @@ public class GnrtBox : MonoBehaviour
 
     void Start()
     {
-        //3초 후에 1~3초 간격으로 랜덤 생성하기
-        InvokeRepeating("GenerateBox", 3, Random.Range(range1, range2));
+        InvokeGnrt();
     }
 
     void Update()
     {
         
+    }
+
+    public void InvokeGnrt()
+    {
+        //3초 후에 1~3초 간격으로 랜덤 생성하기
+        InvokeRepeating("GenerateBox", 3, Random.Range(range1, range2));
     }
 
     //박스 생성 함수

@@ -37,19 +37,14 @@ public class GameMng : MonoBehaviour
     //게임이 시작했는지 여부를 저장하는 변수
     private bool isStart = false;
 
-    //게임 종료 조건 변수
-    private int score; //점수
-    private int goal; //목표 숫자 : 선물을 획득해야 하는 숫자
-
-    //게임 진행 메세지
-    public Text scoreMsg; //점수 보여주는 메세지
-    public Text goalMsg; //생명 보여주는 메세지
-    public Text resultMsg; //결과 보여주는 메세지
-
     //스테이지2로 넘어가는 버튼
     public GameObject stage2Btn;
     //다시 시작하기 버튼
     public GameObject replayBtn;
+
+    //게임 종료 조건 변수
+    bool isSuccess;
+    bool isFail;
 
     private void Update()
     {
@@ -84,52 +79,42 @@ public class GameMng : MonoBehaviour
             }
         }
 
+        //게임 종료 조건
+        isSuccess = ScoreMng.instance.GetIsSuccess();
+        isFail = ScoreMng.instance.GetIsFail();
+
         //Stage1
         if (gameState == GameState.Stage1)
         {
             if(!isStart)
             {
                 //게임 시작 전 score, goal변수 설정
-                score = 5;
-                goal = 15;
-
-                scoreMsg.text = "Present " + score;
-                goalMsg.text = "Goal " + goal;
-
+                ScoreMng.instance.SetScore(5);
+                ScoreMng.instance.SetGoal(15);
+                
                 isStart = true;
             }
             else
-            {
-                //박스와 충돌 시 Score 점수 수정
-                if (isCollisionP) //선물 상자와 충돌한 경우
-                {
-                    PlusScore();
-                    isCollisionP = false;
-                }
-                if (isCollisionB) //나무 상자와 충돌한 경우
-                {
-                    MinusScore();
-                    isCollisionB = false;
-                }
-
-                //게임 종료 조건
+            {                
                 //성공
-                if (score >= goal)
+                if (isSuccess)
                 {
-                    resultMsg.text = "Success!";
                     //박스 생성 멈춤
                     stage1Player.GetComponent<GnrtBox>().CancelInvoke("GenerateBox");
                     //스테이지2로 넘어가는 버튼
                     stage2Btn.SetActive(true);
+
+                    ScoreMng.instance.SetIsSuccess(false);
                 }
                 //실패
-                if (score < 0)
+                else if (isFail)
                 {
-                    resultMsg.text = "Fail!";
                     //박스 생성 멈춤
                     stage1Player.GetComponent<GnrtBox>().CancelInvoke("GenerateBox");
                     //다시하기 버튼
                     replayBtn.SetActive(true);
+
+                    ScoreMng.instance.SetIsFail(false);
                 }
             }
         }
@@ -141,42 +126,26 @@ public class GameMng : MonoBehaviour
             if (!isStart)
             {
                 //게임 시작 전 score, goal변수 설정
-                score = 10;
-                goal = 20;
-
-                scoreMsg.text = "Present " + score;
-                goalMsg.text = "Goal " + goal;
+                ScoreMng.instance.SetScore(10);
+                ScoreMng.instance.SetGoal(30);
 
                 isStart = true;
+
             }
             else
             {
-                //박스와 충돌 시 Score 점수 수정
-                if (isCollisionP) //선물 상자와 충돌한 경우
-                {
-                    PlusScore();
-                    isCollisionP = false;
-                }
-                if (isCollisionB) //나무 상자와 충돌한 경우
-                {
-                    MinusScore();
-                    isCollisionB = false;
-                }
-
                 //게임 종료 조건
                 //성공
-                if (score >= goal)
+                if (isSuccess)
                 {
-                    resultMsg.text = "Success!";
                     //박스 생성 멈춤
                     stage2Player.GetComponent<GnrtBox>().CancelInvoke("GenerateBox");
                     //스테이지2로 넘어가는 버튼
                     //stage2Btn.SetActive(true);
                 }
                 //실패
-                if (score < 0)
+                else if (isFail)
                 {
-                    resultMsg.text = "Fail!";
                     //박스 생성 멈춤
                     stage2Player.GetComponent<GnrtBox>().CancelInvoke("GenerateBox");
                     //다시하기 버튼
@@ -185,12 +154,6 @@ public class GameMng : MonoBehaviour
             }
         }
         
-    }
-
-    //gameState반환하는 함수
-    public string GetGameState()
-    {
-        return gameState.ToString();
     }
 
     //버튼 이벤트
@@ -208,6 +171,8 @@ public class GameMng : MonoBehaviour
         startMsg.text = null;
         //버튼 지우기
         startBtn.SetActive(false);
+        //score text 띄우기
+        ScoreMng.instance.SetIsStartbtnClicked(true);
     }
 
     //Stage2로 넘어가는 버튼 이벤트
@@ -221,30 +186,33 @@ public class GameMng : MonoBehaviour
         //총 오브젝트 활성화
         gun.SetActive(true);
         //결과 메세지 지우기
-        resultMsg.text = null;
+        ScoreMng.instance.resultText.text = null;
         //버튼 지우기
         stage2Btn.SetActive(false);
         //isStart 변수 설정
         isStart = false;
+
+        //박스 생성 다시 시작
+        stage2Player.GetComponent<GnrtBox>().InvokeGnrt();
+
     }
 
     //Replay버튼 이벤트
     public void OnClickReplayBtn()
     {
         //게임 시작 전 score, goal변수 설정
-        score = 5;
-        goal = 15;
-
-        scoreMsg.text = "Present " + score;
-        goalMsg.text = "Goal " + goal;
-
-        //박스 생성 다시 시작
-        stage1Player.GetComponent<GnrtBox>().InvokeRepeating("GenerateBox", 3, Random.Range(1, 3));
+        ScoreMng.instance.SetScore(5);
+        ScoreMng.instance.SetGoal(15);
 
         //결과 메세지 지우기
-        resultMsg.text = null;
+        ScoreMng.instance.resultText.text = null;
+
         //버튼 지우기
         replayBtn.SetActive(false);
+        
+        //박스 생성 다시 시작
+        stage1Player.GetComponent<GnrtBox>().InvokeGnrt();
+        
     }
 
     //충돌 변수 설정
@@ -257,26 +225,5 @@ public class GameMng : MonoBehaviour
         isCollisionB = collision;
     }
 
-    //스테이지1 score 증감 함수
-    public void PlusScore()
-    {
-        score++;
-        scoreMsg.text = "Present " + score;
-    }
-    public void MinusScore()
-    {
-        score -= 3;
-        scoreMsg.text = "Present " + score;
-    }
-    //Score반환 함수
-    public int GetScore()
-    {
-        return score;
-    }
-    //goal반환 함수
-    public int GetGaol()
-    {
-        return goal;
-    }
 
 }
