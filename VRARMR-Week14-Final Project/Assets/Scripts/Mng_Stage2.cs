@@ -22,33 +22,37 @@ public class Mng_Stage2 : MonoBehaviour
 
     void Start()
     {
-        //시작 여부 true로 바꾸기
-        Mng_Score.instance.SetIsStartbtnClicked(true);
         //게임 시작 전 score, goal변수 설정
-        Mng_Score.instance.SetScore(10);
-        Mng_Score.instance.SetGoal(30);
+        this.gameObject.GetComponent<Mng_Score>().SetScore(10);
+        this.gameObject.GetComponent<Mng_Score>().SetGoal(30);
     }
 
     void Update()
     {
-        isSuccess = Mng_Score.instance.GetIsSuccess();
-        isFail = Mng_Score.instance.GetIsFail();
+        isSuccess = this.gameObject.GetComponent<Mng_Score>().GetIsSuccess();
+        isFail = this.gameObject.GetComponent<Mng_Score>().GetIsFail();
 
         //성공
         if (isSuccess)
         {
             //박스 생성 멈춤
-            player.GetComponent<GnrtBox>().CancelInvoke("GenerateBox");
+            player.GetComponent<GnrtBox>().StopCoroutine("GenerateBox");
             //스테이지2로 넘어가는 버튼
             stage3Btn.SetActive(true);
+
+            //성공 여부 false로 바꾸기
+            this.gameObject.GetComponent<Mng_Score>().SetIsSuccess(false);
         }
         //실패
         else if (isFail)
         {
             //박스 생성 멈춤
-            player.GetComponent<GnrtBox>().CancelInvoke("GenerateBox");
+            player.GetComponent<GnrtBox>().StopCoroutine("GenerateBox");
             //다시하기 버튼
             replayBtn.SetActive(true);
+
+            //실패 여부 false로 바꾸기
+            this.gameObject.GetComponent<Mng_Score>().SetIsFail(false);
         }
 
     }
@@ -61,7 +65,7 @@ public class Mng_Stage2 : MonoBehaviour
         this.gameObject.SetActive(false);
         stage3.SetActive(true);
         //결과 메세지 지우기
-        Mng_Score.instance.resultText.text = null;
+        this.gameObject.GetComponent<Mng_Score>().resultText.text = null;
         //버튼 지우기
         stage3Btn.SetActive(false);
     }
@@ -70,11 +74,11 @@ public class Mng_Stage2 : MonoBehaviour
     public void OnClickReplayBtn()
     {
         //게임 시작 전 score, goal변수 설정
-        Mng_Score.instance.SetScore(10);
-        Mng_Score.instance.SetGoal(30);
+        this.gameObject.GetComponent<Mng_Score>().SetScore(10);
+        this.gameObject.GetComponent<Mng_Score>().SetGoal(30);
 
         //결과 메세지 지우기
-        Mng_Score.instance.resultText.text = null;
+        this.gameObject.GetComponent<Mng_Score>().resultText.text = null;
 
         //버튼 지우기
         replayBtn.SetActive(false);

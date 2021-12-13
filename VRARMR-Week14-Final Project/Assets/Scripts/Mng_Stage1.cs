@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mng_Stage1 : MonoBehaviour
 {
@@ -23,38 +24,36 @@ public class Mng_Stage1 : MonoBehaviour
     void Start()
     {
         //게임 시작 전 score, goal변수 설정
-        Mng_Score.instance.SetScore(5);
-        Mng_Score.instance.SetGoal(15);
+        this.gameObject.GetComponent<Mng_Score>().SetScore(14);
+        this.gameObject.GetComponent<Mng_Score>().SetGoal(15);
     }
 
     void Update()
     {
-        isSuccess = Mng_Score.instance.GetIsSuccess();
-        isFail = Mng_Score.instance.GetIsFail();
+        isSuccess = this.gameObject.GetComponent<Mng_Score>().GetIsSuccess();
+        isFail = this.gameObject.GetComponent<Mng_Score>().GetIsFail();
 
         //성공
         if (isSuccess)
         {
             //박스 생성 멈춤
-            player.GetComponent<GnrtBox>().CancelInvoke("GenerateBox");
+            player.GetComponent<GnrtBox>().StopGnrt();
             //스테이지2로 넘어가는 버튼
             stage2Btn.SetActive(true);
-            Mng_Score.instance.SetIsStartbtnClicked(false);
 
             //성공 여부 false로 바꾸기
-            Mng_Score.instance.SetIsSuccess(false);
+            this.gameObject.GetComponent<Mng_Score>().SetIsSuccess(false);
         }
         //실패
         else if (isFail)
         {
             //박스 생성 멈춤
-            player.GetComponent<GnrtBox>().CancelInvoke("GenerateBox");
+            player.GetComponent<GnrtBox>().StopGnrt();
             //다시하기 버튼
             replayBtn.SetActive(true);
-            Mng_Score.instance.SetIsStartbtnClicked(false);
 
             //실패 여부 false로 바꾸기
-            Mng_Score.instance.SetIsFail(false);
+            this.gameObject.GetComponent<Mng_Score>().SetIsFail(false);
         }
     }
 
@@ -66,31 +65,29 @@ public class Mng_Stage1 : MonoBehaviour
         this.gameObject.SetActive(false);
         stage2.SetActive(true);
         //결과 메세지 지우기
-        Mng_Score.instance.resultText.text = null;
+        this.gameObject.GetComponent<Mng_Score>().resultText.text = null;
         //버튼 지우기
         stage2Btn.SetActive(false);
-        //박스 생성 다시 시작
-        //player.GetComponent<GnrtBox>().InvokeGnrt();
     }
 
     //Replay버튼 이벤트
     public void OnClickReplayBtn()
     {
         //게임 시작 전 score, goal변수 설정
-        Mng_Score.instance.SetScore(5);
-        Mng_Score.instance.SetGoal(15);
+        this.gameObject.GetComponent<Mng_Score>().SetScore(0);
+        this.gameObject.GetComponent<Mng_Score>().SetGoal(15);
 
         //결과 메세지 지우기
-        Mng_Score.instance.resultText.text = null;
+        this.gameObject.GetComponent<Mng_Score>().resultText.text = null;
 
         //버튼 지우기
         replayBtn.SetActive(false);
 
-        //박스 생성 다시 시작
-        player.GetComponent<GnrtBox>().InvokeGnrt();
+        //타이머 다시 설정
+        this.gameObject.GetComponent<Mng_Score>().SetTimer();
 
-        //시작 여부 true로 설정
-        Mng_Score.instance.SetIsStartbtnClicked(true);
+        //박스 생성 다시 시작
+        player.GetComponent<GnrtBox>().StartGnrt();
     }
 
 }

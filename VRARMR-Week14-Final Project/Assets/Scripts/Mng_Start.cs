@@ -55,7 +55,5 @@ public class Mng_Start : MonoBehaviour
         startMsg.text = null;
         //버튼 지우기
         startBtn.SetActive(false);
-        //score text 띄우기
-        Mng_Score.instance.SetIsStartbtnClicked(true);
     }
 }

@@ -553,6 +553,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4392400078716962}
   - component: {fileID: 95038198796019630}
+  - component: {fileID: -2443610465215319099}
+  - component: {fileID: 4043879575523046759}
   m_Layer: 0
   m_Name: Stage2Enemy
   m_TagString: Untagged
@@ -569,7 +571,7 @@ Transform:
   m_GameObject: {fileID: 1475339451434976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_Children:
   - {fileID: 4135605759357916}
   - {fileID: 4408940775073840}
@@ -601,6 +603,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-2443610465215319099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475339451434976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64182c22f1edcec4f8bb70ef0357d497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.2
+  present2OnGrnd: {fileID: 5584839951067356440, guid: bf6e494e6c81a984e93b1b20b3883af5, type: 3}
+--- !u!136 &4043879575523046759
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475339451434976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.18
+  m_Height: 1.75
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &1475716869458680
 GameObject:
   m_ObjectHideFlags: 0

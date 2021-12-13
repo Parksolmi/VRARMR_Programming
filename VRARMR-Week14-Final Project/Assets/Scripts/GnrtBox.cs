@@ -16,9 +16,11 @@ public class GnrtBox : MonoBehaviour
     public int range1;
     public int range2;
 
+    bool onGoing;
+
     void Start()
     {
-        InvokeGnrt();
+        StartGnrt();
     }
 
     void Update()
@@ -26,56 +28,73 @@ public class GnrtBox : MonoBehaviour
         
     }
 
-    public void InvokeGnrt()
+    public void StartGnrt()
     {
-        print("Invoke호출");
-        //3초 후에 1~3초 간격으로 랜덤 생성하기
-        InvokeRepeating("GenerateBox", 3, Random.Range(range1, range2));
+        onGoing = true;
+        //1~3초 간격으로 랜덤 생성하기
+        StartCoroutine(GenerateBox());
     }
 
-    //박스 생성 함수
-    void GenerateBox()
+    public void StopGnrt()
     {
-        //선물 상자가 나오는 경우
-        if(Random.Range(0.0f, 1.0f) < rate)
+        onGoing = false;
+        StopCoroutine(GenerateBox());
+    }
+    
+    //박스 생성 함수
+    IEnumerator GenerateBox()
+    {
+        while(onGoing)
         {
-            //선물상자 생성
-            GameObject obj = Instantiate(present);
+            //선물 상자가 나오는 경우
+            if (Random.Range(0.0f, 1.0f) < rate)
+            {
+                //선물상자 생성
+                GameObject obj = Instantiate(present);
 
-            //선물 상자가 생성되는 랜덤 위치 설정
-            Vector3 randPos;
-            randPos.x = Random.Range(-0.1f, 0.1f);
-            randPos.y = 0.4f; //하늘에서 생성되어야 하므로 높이 고정 설정
-            randPos.z = Random.Range(-0.1f, 0.1f);
+                //선물 상자가 생성되는 랜덤 위치 설정
+                Vector3 randPos;
+                randPos.x = Random.Range(-0.1f, 0.1f);
+                randPos.y = 0.4f; //하늘에서 생성되어야 하므로 높이 고정 설정
+                randPos.z = Random.Range(-0.1f, 0.1f);
 
-            //선물 상자 위치 = 플레이어 위치에서 랜덤 위치를 더한 값
-            obj.transform.position = transform.position + randPos;
-            
-            //선물 상자 움직이기
-            obj.GetComponent<MoveBox>().SetPosDir(obj.transform.position, 
-                                                            Vector3.down);
-            
+                //선물 상자 위치 = 플레이어 위치에서 랜덤 위치를 더한 값
+                obj.transform.position = transform.position + randPos;
+
+                //선물 상자 움직이기
+                obj.GetComponent<MoveBox>().SetPosDir(obj.transform.position,
+                                                                Vector3.down);
+
+                //아무데도 충돌하지 않고 계속 떨어지는 경우
+                Destroy(obj, 40);
+
+            }
+            //나무 상자가 나오는 경우
+            else //wood box
+            {
+                //나무 상자 생성
+                GameObject obj = Instantiate(woodBox);
+
+                //나무 상자가 생성되는 랜덤 위치 설정
+                Vector3 randPos;
+                randPos.x = Random.Range(-0.1f, 0.1f);
+                randPos.y = 0.4f; //하늘에서 생성되어야 하므로 높이 고정 설정
+                randPos.z = Random.Range(-0.1f, 0.1f);
+
+                //나무 상자 위치 = 플레이어 위치에서 랜덤 위치를 더한 값
+                obj.transform.position = transform.position + randPos;
+
+                //나무 상자 움직이기
+                obj.GetComponent<MoveBox>().SetPosDir(obj.transform.position,
+                                                                Vector3.down);
+
+                //아무데도 충돌하지 않고 계속 떨어지는 경우
+                Destroy(obj, 40);
+            }
+
+            yield return new WaitForSeconds(Random.Range(range1, range2));
         }
-        //나무 상자가 나오는 경우
-        else //wood box
-        {
-            //나무 상자 생성
-            GameObject obj = Instantiate(woodBox);
-
-            //나무 상자가 생성되는 랜덤 위치 설정
-            Vector3 randPos;
-            randPos.x = Random.Range(-0.1f, 0.1f);
-            randPos.y = 0.4f; //하늘에서 생성되어야 하므로 높이 고정 설정
-            randPos.z = Random.Range(-0.1f, 0.1f);
-
-            //나무 상자 위치 = 플레이어 위치에서 랜덤 위치를 더한 값
-            obj.transform.position = transform.position + randPos;
-
-            //나무 상자 움직이기
-            obj.GetComponent<MoveBox>().SetPosDir(obj.transform.position,
-                                                            Vector3.down);
-
-        }
+        
         
     }
 }

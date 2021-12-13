@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Santa2Ctrl : MonoBehaviour
 {
+    //스테이지 오브젝트 저장하는 변수
+    GameObject stage;
+
     //플레이어를 저장할 게임 오브젝트 변수
     public GameObject player;
 
@@ -18,6 +21,11 @@ public class Santa2Ctrl : MonoBehaviour
 
     //이전위치를 저장할 변수
     Vector3 prePos;
+
+    private void Start()
+    {
+        stage = GameObject.FindGameObjectWithTag("Stage2");
+    }
 
     void Update()
     {
@@ -58,21 +66,21 @@ public class Santa2Ctrl : MonoBehaviour
     //충돌처리
     private void OnTriggerEnter(Collider other)
     {
-        int score = Mng_Score.instance.GetScore();
-        int goal = Mng_Score.instance.GetGoal();
+        int score = stage.GetComponent<Mng_Score>().GetScore();
+        int goal = stage.GetComponent<Mng_Score>().GetGoal();
 
         if (score < goal && score >= 0)
         {
             //선물박스
             if (other.tag == "Present2")
             {
-                Mng_Score.instance.AddScore(1);
+                stage.GetComponent<Mng_Score>().AddScore(1);
                 Destroy(other.gameObject);
             }
             //종이박스
             if (other.tag == "WoodBox")
             {
-                Mng_Score.instance.SubScore(4);
+                stage.GetComponent<Mng_Score>().SubScore(4);
                 Destroy(other.gameObject);
             }
         }

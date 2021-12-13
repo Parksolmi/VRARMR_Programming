@@ -18,10 +18,5 @@ public class RemoveBox : MonoBehaviour
             //땅에 닿으면 deleteTime초 뒤 박스 오브젝트 없애기
             Destroy(this.gameObject, deleteTime);
         }
-
-        else
-        {
-            Destroy(this.gameObject, 20);
-        }
     }
 }

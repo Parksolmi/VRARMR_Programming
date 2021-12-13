@@ -5,19 +5,22 @@ using UnityEngine.UI;
 
 public class Mng_Score : MonoBehaviour
 {
-    public static Mng_Score instance;
-    
     public Text scoreText;
     public Text goalText;
     public Text resultText;
 
-    private int score;
-    private int goal;
+    public int score;
+    public int goal;
 
     private bool isSuccess;
     private bool isFail;
 
     private bool isStartbtnClicked;
+
+    //타이머 text
+    public Text timerText;
+    public float time;
+    private float countDown;
 
     //getter & setter
     public int GetScore()
@@ -35,7 +38,7 @@ public class Mng_Score : MonoBehaviour
     public bool GetIsFail()
     {
         return isFail;
-    }    
+    }
     public void SetScore(int score)
     {
         this.score = score;
@@ -52,16 +55,6 @@ public class Mng_Score : MonoBehaviour
     {
         this.isFail = isFail;
     }
-    public void SetIsStartbtnClicked(bool isStartbtnClicked)
-    {
-        this.isStartbtnClicked = isStartbtnClicked;
-    }
-
-    void Awake()
-    {
-        if (!instance)
-            instance = this;
-    }
 
     public void AddScore(int num)
     {
@@ -74,8 +67,11 @@ public class Mng_Score : MonoBehaviour
 
     private void Start()
     {
-        score = 5;
-        goal = 15;
+        //타이머 설정
+        countDown = time;
+
+        //goal 텍스트 설정
+        goalText.text = "Goal " + goal;
 
         isSuccess = false;
         isFail = false;
@@ -84,10 +80,33 @@ public class Mng_Score : MonoBehaviour
 
     private void Update()
     {
-        if (isStartbtnClicked)
+        //score text 업데이트
+        if (score < 0)
         {
-            scoreText.text = "Present " + score;
-            goalText.text = "Goal " + goal;
+            score = 0;
+        }
+        scoreText.text = "Present " + score;
+
+        //시간초과
+        if (Mathf.Floor(countDown)<=0)
+        {
+            //게임 종료
+            //성공
+            if (score >= goal)
+            {
+                resultText.text = "Success!";
+                isSuccess = true;
+            }
+            else if (score < goal)
+            {
+                resultText.text = "Fail!";
+                isFail = true;
+            }
+        }
+        else
+        {
+            countDown -= Time.deltaTime;
+            timerText.text = Mathf.Floor(countDown).ToString();
 
             //게임 종료
             //성공
@@ -96,12 +115,12 @@ public class Mng_Score : MonoBehaviour
                 resultText.text = "Success!";
                 isSuccess = true;
             }
-            else if (score < 0)
-            {
-                resultText.text = "Fail!";
-                isFail = true;
-            }
         }
+        
     }
 
+    public void SetTimer()
+    {
+        countDown = time;
+    }
 }
