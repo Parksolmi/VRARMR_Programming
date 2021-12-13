@@ -10,9 +10,11 @@ public class EnemySantaCtrl : MonoBehaviour
     //Present2OnGrnd 오브젝트를 저장하는 변수
     private GameObject present2OnGrnd;
 
+    //Present2 오브젝트를 저장하는 변수
+    public GameObject present2;
+
     //스테이지 오브젝트
     private GameObject stage;
-
 
     void Start()
     {
@@ -67,7 +69,6 @@ public class EnemySantaCtrl : MonoBehaviour
 
             yield return new WaitForSeconds(4.0f);
         }
-        
     }
 
     //충돌 검사
@@ -75,13 +76,13 @@ public class EnemySantaCtrl : MonoBehaviour
     {
         if (other.tag == "Bullet")
         {
-            Debug.Log("총알 충돌");
-            Destroy(this.gameObject); //삭제
-            this.enabled = true; //멈춤
+            Destroy(other.gameObject); //총알 삭제
+            Destroy(this.gameObject); //enemy 삭제
         }
         if (other.tag == "Santa2")
         {
-            
+            //타이머 줄이기 - 3초
+            stage.GetComponent<Mng_Score>().MinusCountDown(3);
         }
         if (other.tag == "Present2OnGrnd")
         {
@@ -89,7 +90,6 @@ public class EnemySantaCtrl : MonoBehaviour
             //선물 제거
             Destroy(other.gameObject);
             Destroy(this.gameObject);
-
         }
     }
 }

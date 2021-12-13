@@ -36,7 +36,13 @@ public class Mng_Stage2 : MonoBehaviour
         if (isSuccess)
         {
             //박스 생성 멈춤
-            player.GetComponent<GnrtBox>().StopCoroutine("GenerateBox");
+            player.GetComponent<GnrtBox>().StopGnrt();
+            //Enemy생성 멈춤
+            player.GetComponent<GnrtEnemy>().StopGnrt();
+
+            //생성되어 있는 Enemy 지우기
+            Destroy(GameObject.Find("Stage2Enemy(Clone)"));
+
             //스테이지2로 넘어가는 버튼
             stage3Btn.SetActive(true);
 
@@ -47,7 +53,13 @@ public class Mng_Stage2 : MonoBehaviour
         else if (isFail)
         {
             //박스 생성 멈춤
-            player.GetComponent<GnrtBox>().StopCoroutine("GenerateBox");
+            player.GetComponent<GnrtBox>().StopGnrt();
+            //Enemy생성 멈춤
+            player.GetComponent<GnrtEnemy>().StopGnrt();
+
+            //생성되어 있는 Enemy 지우기
+            Destroy(GameObject.Find("Stage2Enemy(Clone)"));
+
             //다시하기 버튼
             replayBtn.SetActive(true);
 
@@ -82,5 +94,14 @@ public class Mng_Stage2 : MonoBehaviour
 
         //버튼 지우기
         replayBtn.SetActive(false);
+
+        //타이머 다시 설정
+        this.gameObject.GetComponent<Mng_Score>().SetTimer();
+
+        //박스 생성 다시 시작
+        player.GetComponent<GnrtBox>().StartGnrt();
+        //Enemy생성 다시 시작
+        player.GetComponent<GnrtEnemy>().StartGnrt();
     }
+
 }

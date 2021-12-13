@@ -8,7 +8,7 @@ public class GnrtPresentOnGrnd : MonoBehaviour
     public GameObject presentOnGrnd;
 
     //面倒贸府
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         //顶
         if (other.gameObject.tag.Equals("Ground"))
@@ -29,7 +29,6 @@ public class GnrtPresentOnGrnd : MonoBehaviour
 
         obj.transform.position = present2Pos;
 
-        //20檬 第俊 昏力
-        Destroy(obj, 20);
     }
+
 }

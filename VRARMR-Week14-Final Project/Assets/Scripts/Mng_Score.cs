@@ -123,4 +123,14 @@ public class Mng_Score : MonoBehaviour
     {
         countDown = time;
     }
+
+    public void PlusCountDown(int num)
+    {
+        countDown += num;
+    }
+
+    public void MinusCountDown(int num)
+    {
+        countDown -= num;
+    }
 }

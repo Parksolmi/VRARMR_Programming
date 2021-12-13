@@ -5,10 +5,10 @@ using UnityEngine;
 //박스 오브젝트를 삭제하는 스크립트
 public class RemoveBox : MonoBehaviour
 {
-    public int deleteTime;
+    public float deleteTime;
 
     //충돌처리
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         //땅
         if (other.gameObject.tag.Equals("Ground"))
