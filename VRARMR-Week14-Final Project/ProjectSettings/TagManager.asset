@@ -17,6 +17,7 @@ TagManager:
   - Present2OnGrnd
   - EnemySanta
   - TimeItem
+  - Boundary
   layers:
   - Default
   - TransparentFX

@@ -42,9 +42,9 @@ public class GnrtEnemy : MonoBehaviour
             //생성 위치
             //Enemy가 생성되는 랜덤 위치 설정
             Vector3 randPos;
-            randPos.x = Random.Range(-0.2f, 0.2f);
+            randPos.x = Random.Range(-0.3f, 0.3f);
             randPos.y = 0;
-            randPos.z = Random.Range(-0.2f, 0.2f);
+            randPos.z = Random.Range(-0.3f, 0.3f);
 
             //Enemy 위치 = 플레이어 위치에서 랜덤 위치를 더한 값
             obj.transform.position = transform.position + randPos;

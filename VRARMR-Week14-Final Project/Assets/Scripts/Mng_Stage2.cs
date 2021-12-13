@@ -22,9 +22,7 @@ public class Mng_Stage2 : MonoBehaviour
 
     void Start()
     {
-        //게임 시작 전 score, goal변수 설정
-        this.gameObject.GetComponent<Mng_Score>().SetScore(10);
-        this.gameObject.GetComponent<Mng_Score>().SetGoal(30);
+        
     }
 
     void Update()
@@ -39,6 +37,13 @@ public class Mng_Stage2 : MonoBehaviour
             player.GetComponent<GnrtBox>().StopGnrt();
             //Enemy생성 멈춤
             player.GetComponent<GnrtEnemy>().StopGnrt();
+            //아이템 생성 멈춤
+            player.GetComponent<GnrtTimeItem>().StopGnrt();
+
+            //생성되어 있는 박스 지우기
+            Destroy(GameObject.Find("Present2(Clone)"));
+            Destroy(GameObject.Find("WoodBox(Clone)"));
+            Destroy(GameObject.Find("Present2OnGrnd(Clone)"));
 
             //생성되어 있는 Enemy 지우기
             Destroy(GameObject.Find("Stage2Enemy(Clone)"));
@@ -56,6 +61,13 @@ public class Mng_Stage2 : MonoBehaviour
             player.GetComponent<GnrtBox>().StopGnrt();
             //Enemy생성 멈춤
             player.GetComponent<GnrtEnemy>().StopGnrt();
+            //아이템 생성 멈춤
+            player.GetComponent<GnrtTimeItem>().StopGnrt();
+
+            //생성되어 있는 박스 지우기
+            Destroy(GameObject.Find("Present2(Clone)"));
+            Destroy(GameObject.Find("WoodBox(Clone)"));
+            Destroy(GameObject.Find("Present2OnGrnd(Clone)"));
 
             //생성되어 있는 Enemy 지우기
             Destroy(GameObject.Find("Stage2Enemy(Clone)"));
@@ -86,8 +98,8 @@ public class Mng_Stage2 : MonoBehaviour
     public void OnClickReplayBtn()
     {
         //게임 시작 전 score, goal변수 설정
-        this.gameObject.GetComponent<Mng_Score>().SetScore(10);
-        this.gameObject.GetComponent<Mng_Score>().SetGoal(30);
+        this.gameObject.GetComponent<Mng_Score>().SetScore(0);
+        this.gameObject.GetComponent<Mng_Score>().SetGoal(20);
 
         //결과 메세지 지우기
         this.gameObject.GetComponent<Mng_Score>().resultText.text = null;
@@ -102,6 +114,8 @@ public class Mng_Stage2 : MonoBehaviour
         player.GetComponent<GnrtBox>().StartGnrt();
         //Enemy생성 다시 시작
         player.GetComponent<GnrtEnemy>().StartGnrt();
+        //아이템 생성 다시 시작
+        player.GetComponent<GnrtTimeItem>().StartGnrt();
     }
 
 }

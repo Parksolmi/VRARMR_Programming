@@ -23,9 +23,7 @@ public class Mng_Stage1 : MonoBehaviour
 
     void Start()
     {
-        //게임 시작 전 score, goal변수 설정
-        this.gameObject.GetComponent<Mng_Score>().SetScore(14);
-        this.gameObject.GetComponent<Mng_Score>().SetGoal(15);
+        
     }
 
     void Update()
@@ -38,6 +36,11 @@ public class Mng_Stage1 : MonoBehaviour
         {
             //박스 생성 멈춤
             player.GetComponent<GnrtBox>().StopGnrt();
+
+            //생성 되어 있는 박스 지우기
+            Destroy(GameObject.Find("Present1(Clone)"));
+            Destroy(GameObject.Find("WoodBox(Clone)"));
+
             //스테이지2로 넘어가는 버튼
             stage2Btn.SetActive(true);
 
@@ -49,6 +52,11 @@ public class Mng_Stage1 : MonoBehaviour
         {
             //박스 생성 멈춤
             player.GetComponent<GnrtBox>().StopGnrt();
+
+            //생성 되어 있는 박스 지우기
+            Destroy(GameObject.Find("Present1(Clone)"));
+            Destroy(GameObject.Find("WoodBox(Clone)"));
+
             //다시하기 버튼
             replayBtn.SetActive(true);
 
