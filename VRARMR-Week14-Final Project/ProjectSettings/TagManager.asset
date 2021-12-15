@@ -18,6 +18,13 @@ TagManager:
   - EnemySanta
   - TimeItem
   - Boundary
+  - Child
+  - Portal1
+  - Portal2
+  - Santa3
+  - Box
+  - Portal1_In
+  - Portal2_In
   layers:
   - Default
   - TransparentFX

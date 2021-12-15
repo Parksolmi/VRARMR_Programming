@@ -7,15 +7,6 @@ public class Santa3Ctrl : MonoBehaviour
     //스테이지 오브젝트 저장하는 변수
     GameObject stage;
 
-    //플레이어를 저장할 게임 오브젝트 변수
-    public GameObject player;
-
-    //총 저장할 게임 오브젝트 변수
-    public GameObject gun;
-
-    //총알 저장할 게임 오브젝트 변수
-    public GameObject bullet;
-
     //플레이어 위치 변수
     public Space mySpace;
 
@@ -24,7 +15,7 @@ public class Santa3Ctrl : MonoBehaviour
 
     private void Start()
     {
-        stage = GameObject.FindGameObjectWithTag("Stage2");
+        stage = GameObject.FindGameObjectWithTag("Stage3");
     }
 
     void Update()
@@ -45,22 +36,6 @@ public class Santa3Ctrl : MonoBehaviour
 
         prePos = Input.mousePosition;
 
-        //마우스 오른쪽 버튼 눌러서 총알 발사
-        if(Input.GetMouseButtonDown(1))
-        {
-            Shot(transform.forward);
-        }
-    }
-
-    //해당 게임 오브젝트를 비활성화 시키는 함수
-    public void setActiveFalse()
-    {
-        player.SetActive(false);
-    }
-    //해당 게임 오브젝트를 활성화 시키는 함수
-    public void setActiveTrue()
-    {
-        player.SetActive(true);
     }
 
     //충돌처리
@@ -71,28 +46,10 @@ public class Santa3Ctrl : MonoBehaviour
 
         if (score < goal && score >= 0)
         {
-            //선물박스
-            if (other.tag == "Present2")
+            if (other.tag == "Child")
             {
-                stage.GetComponent<Mng_Score>().AddScore(1);
-                Destroy(other.gameObject);
-            }
-            //종이박스
-            if (other.tag == "WoodBox")
-            {
-                stage.GetComponent<Mng_Score>().SubScore(4);
-                Destroy(other.gameObject);
+                stage.GetComponent<Mng_Score>().SetIsFail(true);
             }
         }
-    }
-
-    //총알 생성 및 발사하는 함수
-    void Shot(Vector3 dir)
-    {
-        GameObject obj = Instantiate(bullet);
-        Vector3 shotPos = gun.transform.position;
-
-        obj.GetComponent<MoveBullet>().SetPosDir(shotPos, dir);
-        Destroy(obj, 10);
     }
 }

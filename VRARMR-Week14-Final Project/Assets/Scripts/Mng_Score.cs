@@ -15,8 +15,6 @@ public class Mng_Score : MonoBehaviour
     private bool isSuccess;
     private bool isFail;
 
-    private bool isStartbtnClicked;
-
     //≈∏¿Ã∏” text
     public Text timerText;
     public float time;
@@ -75,7 +73,6 @@ public class Mng_Score : MonoBehaviour
 
         isSuccess = false;
         isFail = false;
-        isStartbtnClicked = false;
     }
 
     private void Update()

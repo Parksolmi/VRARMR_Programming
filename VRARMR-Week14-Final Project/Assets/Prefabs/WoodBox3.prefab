@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 2360119876988353136}
   - component: {fileID: 8979809562561498291}
   - component: {fileID: 4207668294864544335}
-  - component: {fileID: 8020963559225506528}
-  - component: {fileID: 5300244100620669196}
   m_Layer: 0
   m_Name: WoodBox3
   m_TagString: WoodBox
@@ -112,31 +110,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7910658, y: 0.31, z: 0.79106593}
-  m_Center: {x: 0.000000014901161, y: -0.24, z: 0.38058025}
---- !u!114 &8020963559225506528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4295809606756504278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85bc5f154cfd2fa4281bd4e39623cd85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deleteTime: 0.5
---- !u!114 &5300244100620669196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4295809606756504278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4906123e859e494a99cf95a63efe17a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.15
+  m_Size: {x: 0.7910658, y: 0.76136404, z: 0.79106593}
+  m_Center: {x: 0, y: -0.0143180415, z: 0.38058025}

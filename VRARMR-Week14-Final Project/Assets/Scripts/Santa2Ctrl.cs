@@ -7,9 +7,6 @@ public class Santa2Ctrl : MonoBehaviour
     //스테이지 오브젝트 저장하는 변수
     GameObject stage;
 
-    //플레이어를 저장할 게임 오브젝트 변수
-    public GameObject player;
-
     //총 저장할 게임 오브젝트 변수
     public GameObject gun;
 
@@ -50,17 +47,6 @@ public class Santa2Ctrl : MonoBehaviour
         {
             Shot(transform.forward);
         }
-    }
-
-    //해당 게임 오브젝트를 비활성화 시키는 함수
-    public void setActiveFalse()
-    {
-        player.SetActive(false);
-    }
-    //해당 게임 오브젝트를 활성화 시키는 함수
-    public void setActiveTrue()
-    {
-        player.SetActive(true);
     }
 
     //충돌처리

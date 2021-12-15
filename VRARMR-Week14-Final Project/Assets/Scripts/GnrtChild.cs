@@ -4,15 +4,42 @@ using UnityEngine;
 
 public class GnrtChild : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //Child 프리팹 넣을 게임 오브젝트 변수
+    public GameObject child;
+
+    public float gnrtTime;
+
+    //생성 할 어린이 수
+    public int childNum;
+
     void Start()
     {
-        
+        //Child 15초 마다 한 명씩 생성
+        StartCoroutine("GenerateEnemy");
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator GenerateEnemy()
     {
-        
+        while(childNum > 0)
+        {
+            //gnrtTime초 뒤에 생성
+            yield return new WaitForSeconds(gnrtTime);
+
+            //생성
+            GameObject obj = Instantiate(child);
+
+            //생성 위치
+            //Child가 생성되는 랜덤 위치 설정
+            Vector3 randPos;
+            randPos.x = Random.Range(-0.2f, 0.2f);
+            randPos.y = 0;
+            randPos.z = Random.Range(-0.2f, 0.2f);
+
+            //Child가 위치 = 플레이어 위치에서 랜덤 위치를 더한 값
+            obj.transform.position = transform.position + randPos;
+
+            childNum--;
+        }
     }
+
 }

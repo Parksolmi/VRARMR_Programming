@@ -54,6 +54,7 @@ public class Mng_Stage2 : MonoBehaviour
             //성공 여부 false로 바꾸기
             this.gameObject.GetComponent<Mng_Score>().SetIsSuccess(false);
         }
+
         //실패
         else if (isFail)
         {
@@ -78,7 +79,6 @@ public class Mng_Stage2 : MonoBehaviour
             //실패 여부 false로 바꾸기
             this.gameObject.GetComponent<Mng_Score>().SetIsFail(false);
         }
-
     }
 
     //버튼이벤트
