@@ -661,7 +661,7 @@ MonoBehaviour:
   nextStage: {fileID: 835523516}
   replay: {fileID: 1611138628}
   timerText: {fileID: 1796794310}
-  time: 90
+  time: 100
   getPresent: {fileID: 8300000, guid: 417ac58f70f4f4f4991ba5f6157891c2, type: 3}
   getWoodBox: {fileID: 8300000, guid: 1291983243467ff44abab51d85a99da9, type: 3}
 --- !u!114 &133492505
@@ -1438,7 +1438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   present: {fileID: 236425843}
   woodBox: {fileID: 236425837}
-  rate: 0.6
+  rate: 0.4
   successEff: {fileID: 19800004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
   failEff: {fileID: 198572881580852744, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 3}
   explosion: {fileID: 8300000, guid: 9f1082fc20d7ced45af4db9c5eaee172, type: 3}
@@ -1604,7 +1604,7 @@ MonoBehaviour:
   scoreText: {fileID: 701037153}
   goalText: {fileID: 414730736}
   resultText: {fileID: 622841211}
-  score: 0
+  score: 14
   goal: 15
   nextStage: {fileID: 1400171059}
   replay: {fileID: 574938915}
@@ -2195,35 +2195,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4969932164289212, guid: bb4c2603a8afa814b9cf9f292187afdc, type: 3}
   m_PrefabInstance: {fileID: 374521929}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &381519930
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'SantaCardMaterial
-
-    17502'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d2b37dab650768946895fd474464eae8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1001 &401837281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5602,8 +5573,8 @@ MonoBehaviour:
   scoreText: {fileID: 701037153}
   goalText: {fileID: 414730736}
   resultText: {fileID: 622841211}
-  score: 0
-  goal: 20
+  score: 14
+  goal: 15
   nextStage: {fileID: 715550430}
   replay: {fileID: 1978290243}
   timerText: {fileID: 1796794310}
@@ -6309,7 +6280,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 381519930}
+  - {fileID: 1492057586}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9149,6 +9120,35 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4969932164289212, guid: bb4c2603a8afa814b9cf9f292187afdc, type: 3}
   m_PrefabInstance: {fileID: 1491529638}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1492057586
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'SantaCardMaterial
+
+    17498'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: d2b37dab650768946895fd474464eae8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1001 &1498947736
 PrefabInstance:
   m_ObjectHideFlags: 0

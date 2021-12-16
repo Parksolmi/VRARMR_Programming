@@ -68,10 +68,10 @@ public class GnrtDeliveryBox : MonoBehaviour
     //충돌 이벤트
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Portal1_In") //포털1과 충돌 한 경우
+        if (other.tag == "Portal1_In") //포털1과 충돌 한 경우
         {
             //선물 상자와 충돌 했으면 점수 1만큼 획득
-            if (present.activeSelf == true) 
+            if (present.activeSelf == true)
             {
                 //이펙트 생기는 위치
                 Vector3 pos = present.transform.position;
@@ -89,7 +89,7 @@ public class GnrtDeliveryBox : MonoBehaviour
                 stage.GetComponent<Mng_Score>().AddScore(1);
             }
             //나무 상자와 충돌 했으면 주어진 시간 3초 감소
-            else if(woodBox.activeSelf == true)
+            else if (woodBox.activeSelf == true)
             {
                 //박스 삭제
                 woodBox.SetActive(false);
@@ -107,7 +107,7 @@ public class GnrtDeliveryBox : MonoBehaviour
         if (other.tag == "Portal2_In")
         {
             //선물 상자와 충돌 했으면 점수 1점 잃음
-            if(present.activeSelf==true)
+            if (present.activeSelf == true)
             {
                 //박스 삭제
                 present.SetActive(false);
@@ -120,7 +120,7 @@ public class GnrtDeliveryBox : MonoBehaviour
                 stage.GetComponent<Mng_Score>().SubScore(1);
             }
             //나무 상자와 충돌 했으면 시간 5초 획득
-            else if(woodBox.activeSelf == true)
+            else if (woodBox.activeSelf == true)
             {
                 //이펙트 생기는 위치
                 Vector3 pos = woodBox.transform.position;
@@ -138,7 +138,7 @@ public class GnrtDeliveryBox : MonoBehaviour
                 ads.PlayOneShot(explosion);
 
                 //시간 획득
-                stage.GetComponent<Mng_Score>().PlusCountDown(5);
+                stage.GetComponent<Mng_Score>().PlusCountDown(10);
             }
         }
     }
