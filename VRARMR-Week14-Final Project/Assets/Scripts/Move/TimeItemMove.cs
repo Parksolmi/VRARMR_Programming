@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Stage 2 에서의 시간 아이템을 움직이는 클래스
 public class TimeItemMove : MonoBehaviour
 {
     //아이템 오브젝트 움직이는(떨어지는) 속도

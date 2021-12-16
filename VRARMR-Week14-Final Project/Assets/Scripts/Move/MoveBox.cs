@@ -17,7 +17,7 @@ public class MoveBox : MonoBehaviour
         //deltaPos위치로 이동하는 함수
         transform.Translate(deltaPos);
     }
-
+    
     //움직이는 방향을 설정하는 함수
     public void SetPosDir(Vector3 pos, Vector3 dir)
     {

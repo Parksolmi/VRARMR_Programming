@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Stage2에서 등장하는 시간 아이템을 생성하는 클래스
 public class GnrtTimeItem : MonoBehaviour
 {
     //타임 아이템 프리팹 저장 할 게임오브젝트
     public GameObject timeItem;
 
+    //반복문 조건 변수
     bool onGoing;
 
     // Start is called before the first frame update
@@ -15,6 +17,7 @@ public class GnrtTimeItem : MonoBehaviour
         StartGnrt();
     }
 
+    //생성을 시작하는 함수
     public void StartGnrt()
     {
         onGoing = true;
@@ -22,12 +25,14 @@ public class GnrtTimeItem : MonoBehaviour
         StartCoroutine(GenerateTimeItem());
     }
 
+    //생성을 중단하는 함수
     public void StopGnrt()
     {
         onGoing = false;
         StopCoroutine(GenerateTimeItem());
     }
 
+    //시간 아이템을 생성하는 함수
     IEnumerator GenerateTimeItem()
     {
         while (onGoing)

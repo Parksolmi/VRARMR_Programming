@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Child 오브젝트 움직이는 클래스
 public class ChildMove : MonoBehaviour
 {
-    public float speed;
-    Vector3 moveDir;
+    public float speed; //움직이는 속도
+    Vector3 moveDir; //움직이는 방향
 
     //스테이지 오브젝트
     private GameObject stage;
@@ -36,14 +37,16 @@ public class ChildMove : MonoBehaviour
         transform.Translate(deltaPos, Space.World);
     }
 
-    //3초마다 방향 바꾸기
+    //4초마다 방향 바꾸기
     IEnumerator ChangeDirection()
     {
         while (true)
         {
+            //랜덤 각도 설정
             float angle = Random.Range(0, 360);
-            transform.Rotate(0, angle, 0);
+            transform.Rotate(0, angle, 0); //회전하기
 
+            //4초 대기
             yield return new WaitForSeconds(4.0f);
         }
     }

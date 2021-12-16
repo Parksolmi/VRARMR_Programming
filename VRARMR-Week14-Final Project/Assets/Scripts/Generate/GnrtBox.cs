@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//상자(선물/쓰레기통) 생성하는 함수
+//상자(선물/쓰레기통) 생성하는 클래스
 public class GnrtBox : MonoBehaviour
 {
     //상자 오브젝트
@@ -12,14 +12,16 @@ public class GnrtBox : MonoBehaviour
     //선물 상자 나오는 확률
     public float rate;
 
-    //랜덤 생성 시간 범위
+    //랜덤 생성 시간 범위(range1 ~ range2)
     public int range1;
     public int range2;
 
+    //반복문을 제어 할 조건변수
     bool onGoing;
 
     void Start()
     {
+        //선물 생성 시작
         StartGnrt();
     }
 
@@ -28,23 +30,28 @@ public class GnrtBox : MonoBehaviour
         
     }
 
+    //생성을 시작하는 함수
     public void StartGnrt()
     {
+        //반복문 조건 true로 설정
         onGoing = true;
-        //1~3초 간격으로 랜덤 생성하기
+        //1~3초 간격으로 랜덤 생성하기 - 코루틴 함수 호출
         StartCoroutine(GenerateBox());
     }
 
+    //생성을 중단하는 함수
     public void StopGnrt()
     {
+        //반복문 조건 false로 설정
         onGoing = false;
+        //코루틴 함수 종료하기
         StopCoroutine(GenerateBox());
     }
     
     //박스 생성 함수
     IEnumerator GenerateBox()
     {
-        while(onGoing)
+        while(onGoing) //onGoing이 true인 동안
         {
             //선물 상자가 나오는 경우
             if (Random.Range(0.0f, 1.0f) < rate)
@@ -92,9 +99,8 @@ public class GnrtBox : MonoBehaviour
                 Destroy(obj, 40);
             }
 
+            //range1 ~ range2초 동안 대기
             yield return new WaitForSeconds(Random.Range(range1, range2));
         }
-        
-        
     }
 }

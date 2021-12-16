@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Stage3에 등장하는 포털을 생성하는 클래스
 public class GnrtPortal : MonoBehaviour
 {
     //상자 오브젝트
@@ -14,6 +15,7 @@ public class GnrtPortal : MonoBehaviour
     //랜덤 생성 시간 범위
     public int gnrtTime;
 
+    //생성 반복문 조건 변수
     bool onGoing;
 
     void Start()
@@ -22,18 +24,25 @@ public class GnrtPortal : MonoBehaviour
         Invoke("StartGnrt", 2);
     }
 
+    //생성을 시작하는 함수
     public void StartGnrt()
     {
+        //생성 조건 변수 true로 설정
         onGoing = true;
+        //생성하기 - 코루틴 함수 호출
         StartCoroutine(GeneratePortal());
     }
 
+    //생성을 중단하는 함수
     public void StopGnrt()
     {
+        //생성 조건 변수 false로 설정
         onGoing = false;
+        //코루틴 함수 중단
         StopCoroutine(GeneratePortal());
     }
 
+    //포털을 생성하는 함수
     IEnumerator GeneratePortal()
     {
         while(onGoing)

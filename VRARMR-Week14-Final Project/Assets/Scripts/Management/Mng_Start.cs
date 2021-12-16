@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//시작 화면 관리 클래스
 public class Mng_Start : MonoBehaviour
 {
     public SantaIdle player; //플레이어 객체 : 처음 시작 할 때 플레이어

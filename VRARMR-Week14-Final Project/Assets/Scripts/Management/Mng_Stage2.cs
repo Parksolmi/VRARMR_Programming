@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//스테이지 2 관리 클래스
 public class Mng_Stage2 : MonoBehaviour
 {
     //플레이어 게임 오브젝트
@@ -25,11 +26,13 @@ public class Mng_Stage2 : MonoBehaviour
 
     void Start()
     {
+        //오디오 컴포넌트 가져오기
         bgm = GetComponent<AudioSource>();
     }
 
     void Update()
     {
+        //Score관리 클래스에서 게임 종료에 대한 변수 가져오기
         isSuccess = this.gameObject.GetComponent<Mng_Score>().GetIsSuccess();
         isFail = this.gameObject.GetComponent<Mng_Score>().GetIsFail();
 
@@ -42,11 +45,6 @@ public class Mng_Stage2 : MonoBehaviour
             player.GetComponent<GnrtEnemy>().StopGnrt();
             //아이템 생성 멈춤
             player.GetComponent<GnrtTimeItem>().StopGnrt();
-
-            //생성되어 있는 박스 지우기
-            Destroy(GameObject.Find("Present2(Clone)"));
-            Destroy(GameObject.Find("WoodBox(Clone)"));
-            Destroy(GameObject.Find("Present2OnGrnd(Clone)"));
 
             //생성되어 있는 Enemy 지우기
             Destroy(GameObject.Find("Stage2Enemy(Clone)"));
@@ -67,14 +65,6 @@ public class Mng_Stage2 : MonoBehaviour
             player.GetComponent<GnrtEnemy>().StopGnrt();
             //아이템 생성 멈춤
             player.GetComponent<GnrtTimeItem>().StopGnrt();
-
-            //생성되어 있는 박스 지우기
-            Destroy(GameObject.Find("Present2(Clone)"));
-            Destroy(GameObject.Find("WoodBox(Clone)"));
-            Destroy(GameObject.Find("Present2OnGrnd(Clone)"));
-
-            //생성되어 있는 Enemy 지우기
-            Destroy(GameObject.Find("Stage2Enemy(Clone)"));
 
             //다시하기 버튼
             replayBtn.SetActive(true);
