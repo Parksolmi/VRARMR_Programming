@@ -8,6 +8,7 @@ public class GnrtPresentOnGrnd : MonoBehaviour
     //PresentOnGrnd 프리팹 저장 할 게임오브젝트
     public GameObject presentOnGrnd;
 
+
     //충돌처리
     private void OnTriggerEnter(Collider other)
     {

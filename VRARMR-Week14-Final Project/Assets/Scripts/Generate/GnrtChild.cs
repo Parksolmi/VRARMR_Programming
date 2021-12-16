@@ -8,13 +8,23 @@ public class GnrtChild : MonoBehaviour
     //Child 프리팹 넣을 게임 오브젝트 변수
     public GameObject child;
 
+    //Child 프리팹 저장 할 리스트
+    List<GameObject> childList = new List<GameObject>();
+
+    //생성 시간
     public float gnrtTime;
 
     //생성 할 전체 Child 수
     public int childNum;
 
-    //생성 해야 할 어린이 수(남은 Child 수)
+    //생성 한 child 수
     int gnrtNum;
+
+    //getter & setter
+    public int GetChildNum()
+    {
+        return childNum;
+    }
 
     void Start()
     {
@@ -31,15 +41,18 @@ public class GnrtChild : MonoBehaviour
     //Child를 생성하는 함수
     IEnumerator GenerateChild()
     {
-        gnrtNum = childNum; //gnrtNum을 초기 설정한 수로 초기화
+        gnrtNum = 0; //gnrtNum을 0으로 초기화
+        int index = 0;
 
-        while (gnrtNum > 0) //gnrtNum이 0이상인 동안 반복문 실행
+        while (gnrtNum != childNum) //gnrtNum이 childNum과 같아질 때까지
         {
             //gnrtTime초 뒤에 생성 (대기)
             yield return new WaitForSeconds(gnrtTime);
 
             //Child 생성
             GameObject obj = Instantiate(child);
+            //리스트에 추가
+            childList.Insert(index++, obj);
 
             //생성 위치
             //Child가 생성되는 랜덤 위치 설정
@@ -51,9 +64,17 @@ public class GnrtChild : MonoBehaviour
             //Child가 위치 = 플레이어 위치에서 랜덤 위치를 더한 값
             obj.transform.position = transform.position + randPos;
 
-            //앞으로 생성해야 할 child수 감소시키기
-            gnrtNum--;
+            //생성된 child수 증가시키기
+            gnrtNum++;
         }
     }
 
+    //리스트에 저장된 오브젝트 모두 지우는 함수
+    public void DeleteList()
+    {
+        for(int i=0; i< gnrtNum; i++)
+        {
+            Destroy(childList[i]);
+        }
+    }
 }

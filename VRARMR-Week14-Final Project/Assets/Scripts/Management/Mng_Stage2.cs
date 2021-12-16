@@ -46,6 +46,11 @@ public class Mng_Stage2 : MonoBehaviour
             //아이템 생성 멈춤
             player.GetComponent<GnrtTimeItem>().StopGnrt();
 
+            //생성 되어 있는 상자 오브젝트 지우기
+            Destroy(GameObject.Find("Present2(Clone)"));
+            Destroy(GameObject.Find("WoodBox(Clone)"));
+            Destroy(GameObject.Find("Present2OnGrnd(Clone)"));
+
             //생성되어 있는 Enemy 지우기
             Destroy(GameObject.Find("Stage2Enemy(Clone)"));
 
@@ -65,6 +70,14 @@ public class Mng_Stage2 : MonoBehaviour
             player.GetComponent<GnrtEnemy>().StopGnrt();
             //아이템 생성 멈춤
             player.GetComponent<GnrtTimeItem>().StopGnrt();
+
+            //생성 되어 있는 상자 오브젝트 지우기
+            Destroy(GameObject.Find("Present2(Clone)"));
+            Destroy(GameObject.Find("WoodBox(Clone)"));
+            Destroy(GameObject.Find("Present2OnGrnd(Clone)"));
+
+            //생성되어 있는 Enemy 지우기
+            Destroy(GameObject.Find("Stage2Enemy(Clone)"));
 
             //다시하기 버튼
             replayBtn.SetActive(true);

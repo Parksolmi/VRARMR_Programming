@@ -42,6 +42,11 @@ public class Mng_Stage3 : MonoBehaviour
             {
                 //포털 생성 멈춤
                 player.GetComponent<GnrtPortal>().StopGnrt();
+                //child 생성 멈춤
+                player.GetComponent<GnrtChild>().StopGnrt();
+
+                //Child지우기
+                player.GetComponent<GnrtChild>().DeleteList();
 
                 //ReStart버튼 활성화
                 reStartBtn.SetActive(true);
@@ -58,6 +63,11 @@ public class Mng_Stage3 : MonoBehaviour
             {
                 //포털 생성 멈춤
                 player.GetComponent<GnrtPortal>().StopGnrt();
+                //child 생성 멈춤
+                player.GetComponent<GnrtChild>().StopGnrt();
+
+                //Child지우기
+                player.GetComponent<GnrtChild>().DeleteList();
 
                 //다시하기 버튼
                 replayBtn.SetActive(true);
@@ -68,7 +78,6 @@ public class Mng_Stage3 : MonoBehaviour
         }
 
     }
-
     //버튼이벤트
     //처음으로 돌아가는 이벤트
     public void OnClickReStartBtn()
@@ -95,6 +104,7 @@ public class Mng_Stage3 : MonoBehaviour
 
         //포털 생성 함수 다시 호출
         player.GetComponent<GnrtPortal>().Invoke("StartGnrt", 2);
+
         //child 다시 생성
         player.GetComponent<GnrtChild>().StartCoroutine("GenerateChild");
 
