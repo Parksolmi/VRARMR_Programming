@@ -45,14 +45,14 @@ Repository for saving practice, assignments, and projects of 'VR/AR/MR Programmi
 <img width="80%" src = "https://user-images.githubusercontent.com/69065439/149148473-f7d69800-c201-4e36-8d0f-7b288b2ead95.GIF" />
 
 - Play Video  
-📽_Intro_ : The game starts when you recognize the 'Santa card'.  
-<img width="30%" src = "https://user-images.githubusercontent.com/69065439/149147777-84a32aac-70ae-4135-a74b-f76484580ed5.gif" />
-
-  📽_Stage1_ : You have to get g gift falling from the sky.  
-<img width="30%" src = "https://user-images.githubusercontent.com/69065439/149147866-971ee6ca-5286-4770-8b49-94cdd021a415.gif" />
-
-  📽_Stage2_ : You have to keep a gift from the 'thief Santa'.  
+📽**Intro** : The game starts when you recognize the 'Santa card'.  
+<img width="30%" src = "https://user-images.githubusercontent.com/69065439/149147777-84a32aac-70ae-4135-a74b-f76484580ed5.gif" />  
+  
+📽**Stage1** : You have to get g gift falling from the sky.  
+<img width="30%" src = "https://user-images.githubusercontent.com/69065439/149147866-971ee6ca-5286-4770-8b49-94cdd021a415.gif" />  
+  
+📽**Stage2** : You have to keep a gift from the 'thief Santa'.  
 <img width="30%" src = "https://user-images.githubusercontent.com/69065439/149147961-a683ec26-39d8-47d5-aaf7-7e95652825d3.gif" />  
-
-  📽_Stage3_ : Gifts should be delivered through the 'Delivery Portal', and wooden boxes should be thrown away through the 'Trash Can Portal'. You should not encounter children during delivery.  
-<img width="30%" src = "https://user-images.githubusercontent.com/69065439/149148226-343dd197-010c-4b7c-a238-c7d62050888f.gif" />
+  
+📽**Stage3** : Gifts should be delivered through the 'Delivery Portal', and wooden boxes should be thrown away through the 'Trash Can Portal'. You should not encounter children during delivery.  
+<img width="30%" src = "https://user-images.githubusercontent.com/69065439/149148226-343dd197-010c-4b7c-a238-c7d62050888f.gif" />  
