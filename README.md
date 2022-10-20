@@ -15,7 +15,7 @@ Repository for saving practice, assignments, and projects of 'VR/AR/MR Programmi
 - VRARMR_Shooting Game
 - VRARMR_Christmas Game
 
-### 🕹VRARMR_Shooting Game
+### 🕹VRARMR_Shooting Game🔫
 - Instructions
 <img width="80%" src = "https://user-images.githubusercontent.com/69065439/149138246-009d3dcb-0449-4f31-84c2-fe7ebd4ab217.GIF" />
 <img width="80%" src = "https://user-images.githubusercontent.com/69065439/149138248-267a8373-2218-460d-80bb-2d136ceee457.GIF" />
