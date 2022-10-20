@@ -27,7 +27,7 @@ Repository for saving practice, assignments, and projects of 'VR/AR/MR Programmi
 <img width="30%" src = "https://user-images.githubusercontent.com/69065439/149137070-572b098a-12a3-4d94-a3e3-4320f641798e.gif" />
 <img width="30%" src = "https://user-images.githubusercontent.com/69065439/149137806-ad9e40e4-b185-45f3-ab54-37da26140540.gif" />  
   
-### 🕹VRARMR_Christmas Game
+### 🕹VRARMR_Santa on Christmas Eve🌙
 - Instructions
 <img width="80%" src = "https://user-images.githubusercontent.com/69065439/149148437-0d3730d3-9dc1-4c68-a50a-bf88e3a526c5.GIF" />
 <img width="80%" src = "https://user-images.githubusercontent.com/69065439/149148440-6bd23fa7-d37c-4c62-9172-65267d9e3db3.GIF" />
